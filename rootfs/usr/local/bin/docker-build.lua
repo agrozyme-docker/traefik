@@ -2,11 +2,13 @@
 local core = require("docker-core")
 
 local function update_settings(file, items)
-  local text = string.gsub([==[
+  local text =
+    string.gsub([==[
 
-[file]
-  directory = "$etc"
-  watch = true
+[providers]
+  [providers.file]
+    directory = "$etc"
+    watch = true
 
     ]==], "$(%w+)", items)
 
